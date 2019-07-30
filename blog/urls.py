@@ -15,10 +15,10 @@ Including another URLconf
 """
 
 from django.urls import path
-from blog import views
+from blog.views import *
 
 
 urlpatterns = [
-    path('home/', views.home_page)
+    path('home/', home_page)
 
 ]
