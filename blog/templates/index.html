@@ -1,24 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Blog</title>
-</head>
-<body>
-        <h1>Hello World!</h1>
+{% extends 'base.html' %}
+    {% block content %}
+
+
+        <h1>Eden's Blog</h1>
 
         <h2>The current date/time is : {{ current_time }}</h2>
 
         {% for article in articles %}
             {% if article.draft == False %}
                 <article>
-                    <h2>{{ article.title }} by {{ article.author }}</h2>
+                    <a href="{% url 'article_page' id=article.id %}">
+                        <h2>{{ article.title }} by {{ article.author }}</h2>
+                    </a>
                     <p>{{ article.body }}</p>
                     <p>Published: {{ article.published_date }}</p>
                 </article>
             {% endif %}
         {% endfor %}
-</body>
-</html>
+    {% endblock %}

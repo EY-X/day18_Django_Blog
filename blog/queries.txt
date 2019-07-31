@@ -1,2 +1,20 @@
-1.
-
+<dl>	
+            <dt>What is a client?</dt>	
+            <dd>The user. It could be a computer, tablet, or mobile device that is connected to the web.</dd>	
+        </dl>	
+        <dl>	
+            <dt>What is a server?</dt>	
+            <dd>A web server processes incoming network requests over HTTP and several other related protocols.</dd>	
+        </dl>	
+        <dl>	
+            <dt>What is an HTTP request?</dt>	
+            <dd>It is the query(request) that is sent to the server. It contains the Type of request, the Header, and sometimes the Body.</dd>	
+        </dl>	
+        <dl>	
+            <dt>What is an HTTP response?</dt>	
+            <dd>It is an information request message from a client to a server over the hypertext transfer protocol (HTTP). It contains the Status Code, the Header, and sometimes the Body.</dd>	
+        </dl>	
+        <dl>	
+            <dt>What is Django and why do we use it?</dt>	
+            <dd>Uses Of Django – Introduction. Django is an open-source python web framework used for rapid development, pragmatic, maintainable, clean design, and secures websites. ... It takes care of a lot of hassle involved in the web development; enables users to focus on developing components needed for their application.</dd>	
+        </dl>
