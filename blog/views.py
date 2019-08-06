@@ -1,7 +1,7 @@
 from datetime import datetime
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from blog.models import Article
+from blog.models import * 
 
 def home_page(request):
     articles = Article.objects.order_by('-published_date')
@@ -12,6 +12,9 @@ def home_page(request):
 
     response = render(request, 'index.html', context)
     return HttpResponse(response)
+
+def root(request):
+    return HttpResponseRedirect('home')
 
 def article_show(request, id):
     article = Article.objects.get(pk=id)
