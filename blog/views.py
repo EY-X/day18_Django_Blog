@@ -2,23 +2,32 @@ from datetime import datetime
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from blog.models import * 
+from blog.forms import *
 
 def home_page(request):
-    articles = Article.objects.order_by('-published_date')
-    context = {
+    return render(request, 'index.html', {
         'current_time': datetime.now(),
-        'articles': articles
-    }
-
-    response = render(request, 'index.html', context)
-    return HttpResponse(response)
+        'articles': Article.objects.order_by('-published_date')
+    })
 
 def root(request):
     return HttpResponseRedirect('home')
 
 def article_show(request, id):
-    article = Article.objects.get(pk=id)
-    context = {'article': article}
+    return render(request, 'article.html', {
+        'article': Article.objects.get(pk=id)
+    })
 
-    response = render(request, 'article.html', context)
-    return HttpResponse(response)
+def new(request):
+    return render(request, 'article-form.html',{
+        'form': ArticleForm(),
+        'message': 'Create an Article!',
+        'action': '/article/create'
+    })
+
+def article_create(request):
+    form = ArticleForm(request.POST)
+    if form.is_valid():
+        form.save()
+    return HttpResponseRedirect('/home')
+
