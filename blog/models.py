@@ -9,3 +9,4 @@ class Article(models.Model):
     draft = models.BooleanField(default=False)
     published_date = models.DateField(auto_now=True)
     author = models.CharField(max_length=255)
+    
